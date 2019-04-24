@@ -1,0 +1,24 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://10.118.37.186:8443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZVENDOR_CDS_CDS" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ZVendor_CDSType" sap:label="CDS View for vendor" sap:content-version="1">
+				<Key><PropertyRef Name="p_LIFNR"/><PropertyRef Name="lifnr"/></Key><Property Name="p_LIFNR" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"/><Property Name="lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"
+					sap:quickinfo="Account Number of Vendor or Creditor"/><Property Name="land1" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/><Property Name="name1" Type="Edm.String" MaxLength="35" sap:label="Name" sap:quickinfo="Name 1"/><NavigationProperty Name="Parameters" Relationship="ZVENDOR_CDS_CDS.assoc_FFC5D74DB256B0A100C07582CA26286F"
+					FromRole="ToRole_assoc_FFC5D74DB256B0A100C07582CA26286F" ToRole="FromRole_assoc_FFC5D74DB256B0A100C07582CA26286F" sap:filterable="false"/></EntityType>
+			<EntityType Name="ZVendor_CDSParameters" sap:semantics="parameters" sap:content-version="1">
+				<Key><PropertyRef Name="p_LIFNR"/></Key><Property Name="p_LIFNR" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:parameter="mandatory"
+					sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="Set" Relationship="ZVENDOR_CDS_CDS.assoc_FFC5D74DB256B0A100C07582CA26286F"
+					FromRole="FromRole_assoc_FFC5D74DB256B0A100C07582CA26286F" ToRole="ToRole_assoc_FFC5D74DB256B0A100C07582CA26286F"/></EntityType>
+			<Association Name="assoc_FFC5D74DB256B0A100C07582CA26286F" sap:content-version="1"><End Type="ZVENDOR_CDS_CDS.ZVendor_CDSParameters" Multiplicity="1" Role="FromRole_assoc_FFC5D74DB256B0A100C07582CA26286F"/><End Type="ZVENDOR_CDS_CDS.ZVendor_CDSType" Multiplicity="*" Role="ToRole_assoc_FFC5D74DB256B0A100C07582CA26286F"/></Association>
+			<EntityContainer Name="ZVENDOR_CDS_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZVendor_CDSSet" EntityType="ZVENDOR_CDS_CDS.ZVendor_CDSType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ZVendor_CDS" EntityType="ZVENDOR_CDS_CDS.ZVendor_CDSParameters" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="assoc_FFC5D74DB256B0A100C07582CA26286F" Association="ZVENDOR_CDS_CDS.assoc_FFC5D74DB256B0A100C07582CA26286F"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZVendor_CDS" Role="FromRole_assoc_FFC5D74DB256B0A100C07582CA26286F"/><End EntitySet="ZVendor_CDSSet" Role="ToRole_assoc_FFC5D74DB256B0A100C07582CA26286F"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://10.118.37.186:8443/sap/opu/odata/sap/ZVENDOR_CDS_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://10.118.37.186:8443/sap/opu/odata/sap/ZVENDOR_CDS_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

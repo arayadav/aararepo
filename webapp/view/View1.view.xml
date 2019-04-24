@@ -1,0 +1,24 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="Zaara.Zvendor_master_CDS.controller.View1" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Vendor Master Details">
+					<content>
+						<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+							layout="ResponsiveGridLayout" id="form0">
+							<sap.ui.layout.form:content>
+								<Label text="Vendor Number" width="100%" id="label4"/>
+								<Input xmlns="sap.m" value="Value" id="ivendornum"/>
+								<Button xmlns="sap.m" text=" Get Details" id="button0" press="get_details"/>
+								<Label text="Vendor Name" width="100%" id="label5"/>
+								<Input xmlns="sap.m" value="Value" id="ovendname1"/>
+								<Label text="Vendor Country" width="100%" id="label6"/>
+								<Input xmlns="sap.m" value="Value" id="ovendland1"/>
+							</sap.ui.layout.form:content>
+						</sap.ui.layout.form:SimpleForm>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
